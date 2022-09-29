@@ -1,9 +1,6 @@
-
-Breve descrição do grupo
-
-* Turno: [LM]XX
-* Grupo: YY
+* Turno: L11
+* Grupo: 06
 * Alunos:
-    - Aluno1 upZZZZZ 
-    - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
+    - Ana Sofia de Castro Teixeira, up201906031
+    - Duarte Filipe Campos Barbosa Lopes, up202006408
+    - Filipe de Azevedo Cardoso, up202006409
