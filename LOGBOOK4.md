@@ -17,6 +17,18 @@ Lastly by using the export and unset commands is possible to set and unset envir
 > Screenshot of the usage of export and unset commands
 
 ## Task 2
+   
+### Step 1
+
+- After reading the fork manual as well as compiling and running the myprintenv program we concluded that this program would do the same as the myprintenv command or env command on the terminal. In this case, it would print the child process enviroment variables, once the code was being executed in the case 0, which is equal to the child process when the return of the function fork is equal to 0.
+    
+### Step 2 
+
+- After commenting the lines related to the child process and uncomenting the ones related to the parent process it was possible to conclude that the program was outputing the enviroment variables of the parent process, which seemed to be the same enviroment variables as in step #1.
+    
+### Step 3 
+
+- Finally, using the diff command was possible to conclude that there was not difference between the parent process and the child process enviroment variables, so we concluded that parent's enviroment variables are inherited by the child process.
 
 ## Task 3
 
