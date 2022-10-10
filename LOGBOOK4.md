@@ -18,10 +18,16 @@ When running the given code with the default environment variables and no argume
 
 After compiling the program ```foo.c``` with ```gcc```, we get an executable file ```foo```:
 
-(add image)
+```bash
+$ gcc -Wall -o foo foo.c
+```
 
 Now we can run the following commands for the executable file:
-(add image)
+
+```bash
+$ sudo chown root foo
+$ sudo chmod 4755 foo
+```
 
 Since both these commands require extra privileges, we need to use ```sudo``` to run them.
 - The ```chown``` command allows to change the ownership of the executable file to another user, in this case ```root```.
@@ -30,16 +36,21 @@ Since both these commands require extra privileges, we need to use ```sudo``` to
     - read and execute permissions to the group and others (55).
 
 The following image shows the permissions for the executable file ```foo```:
-(add image)
+(task5_permissions)
 
 ### Step 3
 
 We used the command ```export``` to set the following environment variables:
-(add image)
+
+```bash
+$ export PATH="/usr/bin/"
+$ export LD_LIBRARY_PATH="/lib/"
+$ export TEST="this_is_a_test"
+```
 
 With the following images, we can conclude that both ```PATH``` and ```TEST``` variables remain the same but the ```LD_LIBRARY_PATH``` isn't inherited when running the program.
-(add image)
-(add image)
+(task5_env)
+(task5_foo)
 
 ## Task 6
 
