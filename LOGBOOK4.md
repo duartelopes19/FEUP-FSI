@@ -1,8 +1,34 @@
 # Log Book 4
 
 ## Task 1
+An enviromental variable is a variable that is available system wide. As we can see in the screenshot above by using the "printenv" command it prints all the enviroments variables and their current assigned values. For example, the Shell enviroment variable is assigned to the location of the bash executable ie the location where the bash gets "spawned".
+In addition, PWD has a value assigned of /home/seed which corresponds to the current user working directory.
+Finally, using env | grep <name of the enviroment variable> we can see the value of the desired enviromental variable. For example, the env | grep command gives us the old current working directory (old value of the enviroment varaible) and the current working directory (the new/current value). In addition, the env command can run other commands with modified environments.
+
+![](imgs/Task4_printenv.png)
+> Screenshot of the printenv command outcome
+    
+![](imgs/Task4_env.png)
+> Screenshot of the env command outcome
+    
+Lastly by using the export and unset commands is possible to set and unset enviroment variables like PWD which has the value of the current working directory. Also the pwd command doesn't get affected by the deletion of the PWD enviroment variable, as you can see on the following screenshot: 
+    
+![](imgs/Task4_export_unset.png)
+> Screenshot of the usage of export and unset commands
 
 ## Task 2
+   
+### Step 1
+
+- After reading the fork manual as well as compiling and running the myprintenv program we concluded that this program would do the same as the myprintenv command or env command on the terminal. In this case, it would print the child process enviroment variables, once the code was being executed in the case 0, which is equal to the child process when the return of the function fork is equal to 0.
+    
+### Step 2 
+
+- After commenting the lines related to the child process and uncomenting the ones related to the parent process it was possible to conclude that the program was outputing the enviroment variables of the parent process, which seemed to be the same enviroment variables as in step #1.
+    
+### Step 3 
+
+- Finally, using the diff command was possible to conclude that there was not difference between the parent process and the child process enviroment variables, so we concluded that parent's enviroment variables are inherited by the child process.
 
 ## Task 3
 
