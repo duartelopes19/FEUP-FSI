@@ -31,7 +31,7 @@ Lastly by using the export and unset commands is possible to set and unset envir
 - Finally, using the diff command was possible to conclude that there was not difference between the parent process and the child process enviroment variables, so we concluded that parent's enviroment variables are inherited by the child process.
 
 ## Task 3
-#### The code in **myenv.c** executes a program called /usr/bin/env which prints out the environment variables of the current process.
+##### The code in **myenv.c** executes a program called /usr/bin/env which prints out the environment variables of the current process.
 ##### This is achieved by calling **execve()** that has:
 * The <ins>**filename**</ins> of the file that contains the executable image of the new process in it's first argument.
 * <ins>**argv[]**</ins> in it's second argument - <ins>**argv[0]**</ins> is required and must contain the name of the executable file for the new process image. In <ins>**argv[1]**</ins> a NULL pointer is used to mark the end of the array.
@@ -40,23 +40,35 @@ Lastly by using the export and unset commands is possible to set and unset envir
 ##### **Step 1:** At first we don't get any output by compiling and running the code because <ins>**envp**</ins> is NULL.
 
 > ![](imgs/Task3_envp_NULL.png)
+
 _`Screenshot of myenv output with envp as NULL.`_
 
 ##### **Step 2:** Change <ins>**envp**</ins> from NULL to environ in the function call.
 
 >![](imgs/Task3_envp_edit_prev.png)<br>
+
 _`Screenshot of myenv.c before editing envp from NULL to environ.`_
 
 >![](imgs/Task3_envp_edit_after.png)<br>
+
 _`Screenshot of myenv.c after editing envp from NULL to environ.`_
 
 
 ##### **Step 3:** After all the changes, the program prints out all the existing environment variables.
 
 >![](imgs/Task3_envp_environ.png)<br>
+
 _`Screenshot of myenv output with envp as environ.`_
 
 ## Task 4
+##### In this task, we study how environment variables are affected when a new program is executed via the `system()` function. This function is used to execute a command, but unlike `execve()`, which directly executes a command, `system()` actually executes _"/bin/sh -c command"_ i.e., it executes /bin/sh, and asks the shell to execute the command.
+>![](imgs/Task4_creating_file.png)<br>
+
+_`Screenshot of writing system_call.c.`_
+
+>![](imgs/Task4_compile_and_run.png)<br>
+
+_`Screenshot of executing system_call.c.`_
 
 ## Task 5
 
