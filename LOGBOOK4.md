@@ -128,9 +128,10 @@ int main() {
 }
 ```
 After compiling and changing the ownership and permissions of the executable file, we obtained the following output:
-(task6_setuid)
+![](imgs/task6_setuid.png)
 
 Now we create a new program that contains malicious code:
+
 ```C
 #include <stdio.h>
 #include <stdlib.h>
@@ -142,6 +143,11 @@ int main() {
   return 0; // unreachable
 }
 ```
+
+When we manipulate the ```PATH```, we can make it run our malicious code instead. The following image shows the output of the program:
+![](imgs/task6_malicious.png)
+
+
 
 ---
 
