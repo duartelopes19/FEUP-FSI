@@ -116,6 +116,33 @@ With the following images, we can conclude that both ```PATH``` and ```TEST``` v
 
 ## Task 6
 
+By executing the following program given by Seed Labs, we can see that it calls ```ls``` using the ```PATH``` environment variable:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  system("ls");
+  return 0;
+}
+```
+After compiling and changing the ownership and permissions of the executable file, we obtained the following output:
+(task6_setuid)
+
+Now we create a new program that contains malicious code:
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+  fputs("This is a malicious code\n", stdout);
+  execl("/bin/whoami", "", (char *) NULL);
+  return 0; // unreachable
+}
+```
+
 ---
 
 ## CTF 4
