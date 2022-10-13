@@ -45,3 +45,35 @@ In this task we have a file named stack.c which has a buffer overflow vulnerabil
 ---
 
 ## CTF 5
+
+### Challenge 1
+
+#### **Is there a file that is opened and read by the program?**
+Yes, the program stores the name of the file (```mem.txt```) on a buffer (```meme_file```). Then it proceeds to open the file on a reading mode with the function ```fopen```.
+
+#### **Is there any way to control which file is opened?**
+Since the program does not create the file that it uses, it is possible to change the target address and control which file is opened.
+
+#### **Is there any buffer-overflow? If yes, what can you do?**
+
+The array of chars ```buffer``` only has 20 memory positions, however, when ```scanf``` is executed, it reads up to 28 characters and stores them in ```buffer```. Because of this, there is a buffer-overflow that we will use to obtain the flag for the challenge.
+
+![](imgs/week5/ctf5.png)
+
+### Challenge 2
+
+This challenge is similar to the first one, it also is a buffer overflow vulnerability that can be exploited to overwrite the content of local variables.
+
+Differences to the first challenge:
+- Although the size of the array of chars ```buffer``` is still 20, the function ```scanf``` now reads up to 32 characters and stores them in ```buffer```.
+- There's an extra step of security in this challenge. The introduction of a key variable that needs to be matched to access the functionality of file dumping. The key, hexadecimal ```0xfefc2223``` can be manipulated by changing the content of ```val```.
+
+Even with these differences the main goal of the challenge is still the same: cause buffer-overflow by overwriting local variables (in this case, ```val``` and ```meme_file```).
+
+Like in challenge 1, there is a piece of code that dumps the content of a file based on the content of ```meme_file```, we need to change its value to ```flag.txt``` to dump the content of the flag file.
+
+Using an online hexadecimal converter to ASCII, we discover the ASCII representation for ```0xfefc2223``` is: ```þü"#```
+
+This is the string payload that we need to inject to crack the key countermeasure. One subtle trick that took us some time to overcome was the need to convert ```0xfefc2223``` representation to little-endian. This way the string needs to be reverted ```#"üþ```
+
+![](imgs/week5/ctf5_2.png)
