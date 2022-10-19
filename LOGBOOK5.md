@@ -37,6 +37,19 @@ As we can see from the images, these shells include both a ```PWD``` and ```OLDP
 In this task we have a file named stack.c which has a buffer overflow vulnerability. Firstly, we open a file named "badfile" and copy its first 517 characters to a char array named str. After that we invoke the dummy function passing by argument the string buffer which then calls the bof function which uses the strcpy function to copy the string buffer content to another char buffer with only 100 characters capacity. Once, strcpy has no boundary check it would originate a buffer overflow, once we are copying a larger sized string to a smaller sized one. Lastly, by manipulating badfile, e.g writing 100 characters and after that shellcode we could exploit this buffer overflow due to the bof strcpy vulnerability and gain the root privilege due to this Set-UID bit being set.
 
 ## Task 3
+### Investigation
+To exploit the buffer-overflow vulnerability in the target program, the most important thing to know is the distance between the buffer’s starting position and the place where the return-address is stored. We will use a debugging method to find it out.  Since we have the source code of the target program, we can compile it with the debugging flag turned on. That will make it more convenient to debug.
+We will add the **-g** flag to gcc command, so debugging information is added to the binary. We need to create a file called badfile before running the program.
+
+![](imgs/week5/task3_investigation_1.png)
+![](imgs/week5/task3_investigation_2.png)
+![](imgs/week5/task3_investigation_3.png)
+
+The program stops inside the bof function due to the breakpoint created, we then printed out the ebp and buffer values as shown in the previous screenshots.
+
+### Launching Attacks
+
+
 
 ## Task 4 (optional)
 
