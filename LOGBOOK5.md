@@ -42,7 +42,9 @@ To exploit the buffer-overflow vulnerability in the target program, the most imp
 We will add the **-g** flag to gcc command, so debugging information is added to the binary. We need to create a file called badfile before running the program.
 
 ![](imgs/week5/task3_investigation_1.png)
+
 ![](imgs/week5/task3_investigation_2.png)
+
 ![](imgs/week5/task3_investigation_3.png)
 
 The program stops inside the bof function due to the breakpoint created, we then printed out the ebp and buffer values as shown in the previous screenshots.
