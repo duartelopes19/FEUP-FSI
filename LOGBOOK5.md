@@ -50,7 +50,19 @@ We will add the **-g** flag to gcc command, so debugging information is added to
 The program stops inside the bof function due to the breakpoint created, we then printed out the ebp and buffer values as shown in the previous screenshots.
 
 ### Launching Attacks
+After having all the informations needed we can now create our exploit using the script exploit.py.
 
+![](imgs/week5/logbook5_task3_exploit.png)
+
+- **Shellcode:** We write the shellcode that we want to use for the attack.
+
+- **Start:** Since the buffer has 517 bytes and the shellcode has 27 bytes, we utilize 517-27 = 490 as our start value to put the shellcode at the end of the buffer.
+
+- **Ret:** Considering the buffer starts at 0xFFFFCA0C and has a size of 517, the retturn address we chose was 0xFFFFCA0C - 490 = 0xFFFFCBF16.
+
+- **Offset** Since that 0xFFFFCA78 (ebp address) - 0xFFFFCA0C (buffer address) = 108, we conclude that the ebp starts 108 bytes after the buffer. Because it has a size of 4 bytes, our offset must be 108 +  4 = 112. 
+
+![](imgs/week5/logbook5_task3_final.png)
 
 
 ## Task 4 (optional)
