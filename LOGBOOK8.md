@@ -31,13 +31,13 @@
 ##### Modify your own salary.
 ![](imgs/week8/logbook8_task3.1_1.png) <br>
 ![](imgs/week8/logbook8_task3.1_2.png) <br>
-##### To modify Alice's salary we used the NickName text box to run the specific MySQL command : Alice', Salary='999999' WHERE Name="Alice"#.
+##### To modify Alice's salary we used the NickName text box to run the specific MySQL command : ', Salary='999999' WHERE Name="Alice"#.
 
 ### Task 3.2
 ##### Modify other people’ salary.
-![](imgs/week8/logbook8_task3.2_1.png) <br>
 ![](imgs/week8/logbook8_task3.2_2.png) <br>
-##### To modify Boby's salary we used the NickName text box to run the specific MySQL command : Alice', Salary='1' WHERE Name="Boby"#.
+![](imgs/week8/logbook8_task3.2_1.png) <br>
+##### To modify Boby's salary we used the NickName text box to run the specific MySQL command : ', Salary='1' WHERE Name="Boby"#.
 
 ### Task 3.3
 ##### Modify other people’ password.
