@@ -9,7 +9,7 @@
 ### Task 2.1
 ##### Log in into the web application as the administrator from the login page, so that you can see the information of all employees. Exploiting the php query vulnerability.
 ![](imgs/week8/logbook8_task2.1_1.png) <br>
-##### The single quote after entering a valid username existing in the database, closes the argument for the input username and the # sign consequently makes everything after the username to be commented out.
+##### The single quote after entering a valid username existing in the database, closes the argument for the input username and the \# sign consequently makes everything after the username to be commented out.
 ![](imgs/week8/logbook8_task2.1_2.png) <br>
 ##### Hence, we were able to get all the information about the employees using the admin ID.
 
@@ -52,7 +52,9 @@
 ## CTF 8
 
 ### Challenge 1
-...
+##### This CTF is all about SQL Injection, where we are given a login page, and we have to try to login as **admin**. We tried the same SQL Injection type query as in task 2 `admin'--` and we had to write a random character in the password text box as it seems it can not be null.
+![](imgs/week8/logbook8_ctf8_1.png) <br>
+![](imgs/week8/logbook8_ctf8_2.png) <br>
 
 ### Challenge 2
 ...
