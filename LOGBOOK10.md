@@ -88,3 +88,15 @@ A successful attack can't be launched since the Editor mode filters HTML special
 ![](imgs/week10/logbook10_ctf1_script_sol2.png)<br>
 
 ### Challenge 2
+##### Firstly we start by analysing what features are available to non-authenticated users:
+ - Login
+ - Speed Report
+ - Ping a Host
+##### We tried to blindly SQL inject the login form, with common used SQL injection commands but we were not successfull.
+##### We then proceeded to try to explore the ping a host system. We attempted to ping google.com:
+![](imgs/week10/logbook10_ctf2_google.png)<br>
+##### By observing the screenshot above, we can assume that the server is probably using a terminal to run the unix command ping followed by the input that we give it.
+##### After knowing this we can now realize that the solution will come from using the cat command in this terminal. So we made use of && for an additional command after the ping: `(ping) google.com && cat /flags/flag.txt`
+![](imgs/week10/logbook10_ctf2_sol1.png)<br>
+##### We were successful!<br>
+![](imgs/week10/logbook10_ctf2_sol2.png)<br>
