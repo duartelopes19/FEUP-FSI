@@ -1,4 +1,4 @@
-# Log Book 6
+# Log Book 7
 
 ## Environment Setup
 ### Turning off countermeasure
@@ -30,7 +30,7 @@ with open('badfile', 'wb') as f:
   f.write(content)
 ```
 
-![](imgs/week6/task1.png)
+![](imgs/week7/task1.png)
 
 ## Task 2
 ### Task 2A
@@ -57,7 +57,7 @@ with open('badfile', 'wb') as f:
   f.write(content)
 ```
 
-![](imgs/week6/task2A.png)
+![](imgs/week7/task2A.png)
 
 
 ### Task 2B
@@ -91,7 +91,7 @@ with open('badfile', 'wb') as f:
   f.write(content)
 ```
 
-![](imgs/week6/task2B.png)
+![](imgs/week7/task2B.png)
 
 ## Task 3
 ### Task 3A
@@ -123,7 +123,7 @@ with open('badfile', 'wb') as f:
   f.write(content)
 ```
 
-![](imgs/week6/task3A.png)
+![](imgs/week7/task3A.png)
 
 ### Task 3B
 This sub-task is similar to the previous one. However, it specifies the final value of the target variable which is ```0x5000```. This time our payload starts the same (with the target's reference first).
@@ -163,14 +163,23 @@ with open('badfile', 'wb') as f:
   f.write(content)
 ```
 
-![](imgs/week6/task3B.png)
+![](imgs/week7/task3B.png)
 
 ---
 
-## CTF6
+## CTF7
 
 ### Challenge 1
-...
+By analyzing the output of the ```checksec``` command, we can conclude that the Position Independent Executable (PIE) is not active, which means that memory allocation is not being randomized.
+
+Looking at the code, we can see that the vulnerability is a format string since the functions ```scanf()``` and ```printf()``` are used to retrieve input from the user.
+The vulnerability allows us to read and write to variables/registers that we aren't supposed to, thus allowing us the read the flag global variable.
+
+By using ```%s``` on function ```printf()``` format string, we can read the contents of the flag char array. To do this, we just need to obtain the address of said variable.
+
+![](imgs/week7/ctf7_challenge1_gdb.png)
+
+The address of the flag is ```0x804c060```
 
 ### Challenge 2
 ...
