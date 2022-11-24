@@ -74,3 +74,17 @@ A successful attack can't be launched since the Editor mode filters HTML special
 ---
 
 ## CTF 10
+
+### Challenge 1
+##### The goal in this CTF was to beg for the flag and wait 2 minutes for the administrator approval. The strategy we used to solve this problem was using XSS attack to force the administrator approval, therefore getting the flag.
+##### At first we tested out with the word "teste" to see what happened.<br>
+![](imgs/week10/logbook10_ctf1_teste.png)<br>
+##### We figured out there is a button the admin can click to give out the flag to the user, but this button is inacessible to the user.
+##### We then proceeded to try XSS to see if it would work.<br>
+![](imgs/week10/logbook10_ctf1_script1.png)![](imgs/week10/logbook10_ctf1_script2.png)<br>
+##### Then we started to prepare our final script. We discovered the id of the button that gives the flag away and we wrote the script.<br>
+![](imgs/week10/logbook10_ctf1_id.png)![](imgs/week10/logbook10_ctf1_script_sol1.png)<br>
+##### We were successful!<br>
+![](imgs/week10/logbook10_ctf1_script_sol2.png)<br>
+
+### Challenge 2
