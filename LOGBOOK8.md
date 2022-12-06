@@ -78,4 +78,15 @@ This CTF is all about SQL Injection, where we are given a login page, and we hav
 ![](imgs/week8/logbook8_ctf8_2.png)
 
 ### Challenge 2
-...
+
+In this challenge we had to create an exploit that uses a shell in the server to obtain the flag present in the program's working directory.
+
+![](imgs/week8/ctf8challenge2-1.png)
+
+As we can see PIE is enabled so there is address space randomization which means that the addresses change everytime the program is executed. However, when running the program the buffer address is given.
+
+The vulnerability in this challenge is a buffer overflow. A buffer for 100 characters is created but using the gets function it is possible to insert the number of characters that the user wants. This vulnerability is found on line 12.
+
+Knowing this, we made an exploit, which first obtains the address of the buffer and then creates the payload to execute the Buffer Overflow.
+
+![](imgs/week8/ctf8challenge2-2.png)
