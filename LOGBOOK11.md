@@ -45,13 +45,19 @@ certificate:
 ![](imgs/week11/task3-2.png)
 
 ## Task 4
-...
+![](imgs/week11/task4-1.png)
+![](imgs/week11/task4-2.png)
 
 ## Task 5
-...
+ServerName was changed to ```fe.up.pt```. ```10.9.0.80 fe.up.pt``` was added to ```/etc/hosts```.
+![](imgs/week11/task5.png)
 
 ## Task 6
-...
+When the CA is compromised, we can sign certificates ourselves and impersonate other websites. In this case, we're impersonating ```fe.up.pt```.
+
+![](imgs/week11/task6-1.png)
+
+![](imgs/week11/task6-2.png)
 
 ---
 
