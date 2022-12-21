@@ -7,6 +7,7 @@
 
 ### What part of the certificate indicates this is a self-signed certificate?
 The Issuer is the same as the Subject.
+
 ![](imgs/week11/task1-2.png)
 
 ### In the RSA algorithm, we have a public exponent e, a private exponent d, a modulus n, and two secret numbers p and q, such that n = pq. Please identify the values for these elements in your certificate and key files.
