@@ -63,3 +63,16 @@ When the CA is compromised, we can sign certificates ourselves and impersonate o
 ---
 
 ## CTF 11
+### Challenge 1
+
+No primeiro desafio o objetivo é decifrar uma mensagem RSA sendo nos dado indiretamente o valor de p e q e o e é padrão.
+
+Primeiramente, descobrimos p e q. A estratégia utilizada foi o teste de primalidade de Miller-Rabin que diz se um número tem uma boa probabilidade de ser primo, uma vez que com número com tantos digitos verificar com 100% de certeza levaria algum tempo.
+
+<img src="imgs/week11/ctf1img1.png">
+
+Com estes dois números, consegui-mos facilmente calcular o (p-1)(q-1) e por consequente o d.
+´
+O resultado foi o seguinte: 
+
+<img src="imgs/week11/ctf1img2.png">
